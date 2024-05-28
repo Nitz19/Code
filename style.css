@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #dec6e6;
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px;
+  height: 400px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  transition: 1s;
+}
+
+.card:hover {
+  transform: rotate(-5deg);
+}
+
+.card:hover .outside {
+  transform: rotateY(-130deg);
+}
+
+.outside,
+.inside {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  left: 50.1%;
+}
+
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+  line-height: 1.5;
+  padding: 20px;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.outside {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: 2s;
+  cursor: pointer;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+}
+
+.front {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+}
+
+.heart {
+  width: 50px;
+  height: 50px;
+  background: red;
+  position: relative;
+  transform: rotate(-45deg);
+  animation: beat 1s infinite;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart:before {
+  top: -25px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: 25px;
+}
+
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+}
+
+.outside p {
+  font-size: 23px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #000046;
+}
+
+.inside p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.inside h1 {
+  font-size: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.dot {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    background: url(https://image.ibb.co/kyUHab/rose.png);
+    background-size: 100% 100%;
+}
+
